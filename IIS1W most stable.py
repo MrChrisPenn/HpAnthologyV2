@@ -23,10 +23,10 @@ from twython import Twython
 import BuildWorldDM as BuildWorld
 
 
-consumer_key = '5wcNNDJBX2W9GI4IfExb4Pi4F'
-consumer_secret = 'rrm6oH3elfBYChkLfS4WptYhcTidsxKt6BJ37xiyfQbpokVUJw'
-access_token = '726847769592401920-fAwjImqEWKss0n22KWMT8uTvxeUBINl'
-access_token_secret = 'eLI9xbgGXQ26H8K0KXC7U6y2TFFqExeNXAd5XagSzHRuE'
+consumer_key = ''
+consumer_secret = ''
+access_token = ''
+access_token_secret = ''
        
 api = Twython(consumer_key,consumer_secret,access_token,access_token_secret)
 
