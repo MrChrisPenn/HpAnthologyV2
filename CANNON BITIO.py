@@ -391,8 +391,37 @@ class CannonCommands():#cmd.Cmd):
     def do_EOF(self, line):
         return True
 
-#main program
-if __name__ == "__main__":
+#new main program
+#Create the cannon object
+mc = minecraft.Minecraft.create()
+playerPos = self.mc.player.getTilePos()
+cannon = MinecraftCannon(self.mc, minecraft.Vec3(playerPos.x + 3, playerPos.y, playerPos.z))
+
+#read values from microbit and change the direction or angle of the cannon
+while True:
+    x = microbit.accelerometer.get_x()
+    y = microbit.accelerometer.get_y()
+    if x < -300:
+        print("left")
+        #rotate the angle by an additional 10 degree
+        cannon.setDirection(cannon.direction + 10)
+    elif x > 300:
+        print("right")
+        cannon.setDirection(cannon.direction - 10)
+    if y < -300:
+        print("forward")
+        cannon.setAngle(cannon.angle + 10)
+    elif y > 300:
+        print("backward")
+        cannon.setAngle(cannon.angle - 10)
+    if microbit.button_a.was_pressed():
+        cannon.fire()
+    
+    
+    
+    
+#old main program - not needed now - replaced with the code above
+if __name__ == "__main__old":
     while True:
         CannonCommands()#.cmdloop()
         x = microbit.accelerometer.get_x()
