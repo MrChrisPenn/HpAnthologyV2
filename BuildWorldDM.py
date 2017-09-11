@@ -4,7 +4,7 @@ from mcpi import minecraft as minecraft
 from mcpi import block as block
 import random
  
- 
+#woolid = random.randint(1,16) 
 def clearZone( alocx, alocz, blocx, blocz,mc ):
     mc.setBlocks( alocx, 1, alocz, blocx, 128, blocz, block.AIR )
     mc.setBlocks( alocx, -5, alocz, blocx, 0, blocz, block.WATER )
@@ -25,20 +25,24 @@ def Build():
     # --start our top corner of world adjust to get 0,0 ok on map
     x = 100
     z = 85
- 
+    wool = random.randint(1,16)
+     
     for i in myrows: #for each line in our map
         #print len(i)
         print(i)
         z -=1
         x = 100
         y = 0
+        
         for j in i:  # go through each position on the current line
             x -=1
             if j != " ":  # if the map is not empty blank minecraft then place a grass block 
                 position = (x, y, z)
                 mc.setBlock(position, block.AIR)
-                mc.setBlock(position, block.GRASS)
+                mc.setBlock(position, 35,wool)#block.GRASS)
             elif j != " ":  # place water
                 position = (x, y, z)
                 mc.setBlock(position, block.AIR )
                 mc.setBlock(position, block.WATER )
+                time.sleep(10)
+#Build()
